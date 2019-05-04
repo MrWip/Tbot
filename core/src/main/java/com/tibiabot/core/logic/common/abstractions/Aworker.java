@@ -2,6 +2,7 @@ package com.tibiabot.core.logic.common.abstractions;
 
 import com.tibiabot.core.logic.common.TibiaInputer;
 import com.tibiabot.core.logic.common.interfaces.IWorker;
+import org.springframework.beans.factory.annotation.Autowired;
 
 
 import java.awt.*;
@@ -10,8 +11,11 @@ import java.util.List;
 
 public abstract class Aworker<T extends Abehaviour> implements IWorker {
 
+    @Autowired
     private Robot robot;
+    @Autowired
     private TibiaInputer tibiaInputer;
+
     private List<T> list;
 
 

@@ -1,17 +1,16 @@
 package com.tibiabot.core.threads;
 
-import com.tibiabot.core.autowire.Autowire;
+import com.tibiabot.core.logic.eater.EaterEngine;
 import com.tibiabot.core.presentation.TibiaBot;
 
 public class EatThread extends AbsThread implements Runnable {
 
-    private Autowire autowire;
-    private TibiaBot bot;
+    private EaterEngine eaterEngine;
     ThreadPool threadPool;
 
-    public EatThread(Autowire autowire,ThreadPool threadPool){
+    public EatThread(EaterEngine eaterEngine, ThreadPool threadPool){
 
-        this.autowire = autowire;
+        this.eaterEngine = eaterEngine;
         this.threadPool = threadPool;
     }
 
@@ -22,7 +21,7 @@ public class EatThread extends AbsThread implements Runnable {
             try {
                 if (isOn()) {
                         Thread.sleep(60000);
-                        autowire.getEaterEngine().work();
+                        eaterEngine.work();
                 }else {
                     synchronized (this) {
                         wait();

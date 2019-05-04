@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+
+<bean id="bot" class="com.tibiabot.core.presentation.TibiaBot">
+    <property name="manaEngine" ref="manaEngine"></property>
+</bean>
+
+    <bean id="botFactory" class="com.tibiabot.core.logic.factories.Factory"></bean>
+    <bean id="inputer" class="com.tibiabot.core.logic.common.TibiaInputer"></bean>
+    <bean id="checker" class="com.tibiabot.core.logic.healer.workers.HpMChecker"></bean>
+    <bean id="robot" class ="java.awt.Robot"></bean>
+
+        <bean id="healerEngine" class="com.tibiabot.core.logic.healer.workers.HealerEngine"></bean>
+        <bean id="manaEngine" class="com.tibiabot.core.logic.healer.workers.HealerEngine"></bean>
+        <bean id="paralyzeEngine" class="com.tibiabot.core.logic.paralize.ParalyzeEngine"></bean>
+        <bean id="ammoEngine" class="com.tibiabot.core.logic.ammo.AmmoEngine"></bean>
+        <bean id="Engine" class="com.tibiabot.core.logic.eater.EaterEngine"></bean>
+
+
+    <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"></bean>
+
+</beans>

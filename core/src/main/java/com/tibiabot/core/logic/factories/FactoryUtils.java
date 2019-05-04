@@ -3,7 +3,7 @@ package com.tibiabot.core.logic.factories;
 
 import com.tibiabot.core.logic.common.resources.BotConfig;
 
-public class FactoryResources {
+public class FactoryUtils {
 
     protected static int manaHpPercentValue(int value){
 

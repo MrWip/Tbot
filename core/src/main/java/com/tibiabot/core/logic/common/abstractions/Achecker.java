@@ -1,12 +1,14 @@
 package com.tibiabot.core.logic.common.abstractions;
 
 import com.tibiabot.core.logic.common.interfaces.Ichecker;
+import org.springframework.beans.factory.annotation.Autowired;
 
 
 import java.awt.*;
 
 public abstract class Achecker<T extends Abehaviour> implements Ichecker<T> {
 
+    @Autowired
     private Robot robot;
 
     public Robot getRobot() {

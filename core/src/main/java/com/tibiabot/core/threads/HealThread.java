@@ -1,12 +1,13 @@
 package com.tibiabot.core.threads;
 
-import com.tibiabot.core.autowire.Autowire;
 import com.tibiabot.core.logic.healer.workers.HealerEngine;
 import com.tibiabot.core.presentation.TibiaBot;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class HealThread extends AbsThread implements Runnable {
 
     ThreadPool threadPool;
+
     HealerEngine healerEngine;
 
     public HealThread(HealerEngine healerEngine, ThreadPool threadPool){

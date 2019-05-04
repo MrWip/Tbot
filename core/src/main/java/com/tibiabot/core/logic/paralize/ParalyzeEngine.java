@@ -4,7 +4,7 @@ import com.tibiabot.core.logic.common.SimpleBehaviour;
 import com.tibiabot.core.logic.common.abstractions.Aworker;
 import com.tibiabot.core.logic.common.resources.BotConfig;
 
-public class UtilSpellEngine extends Aworker<SimpleBehaviour>{
+public class ParalyzeEngine extends Aworker<SimpleBehaviour>{
 
     private final int checkTimes = 80;
 

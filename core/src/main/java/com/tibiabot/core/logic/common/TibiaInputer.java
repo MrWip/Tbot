@@ -7,6 +7,7 @@ import com.sun.jna.platform.win32.WinUser;
 import com.sun.jna.win32.StdCallLibrary;
 import com.tibiabot.core.logic.common.abstractions.Abehaviour;
 import com.tibiabot.core.logic.common.resources.BotConfig;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.awt.*;
 
@@ -16,6 +17,7 @@ public class TibiaInputer {
         this.robot = robot;
     }
 
+    @Autowired
     private Robot robot;
 
     private final User32 user32;

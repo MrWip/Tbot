@@ -8,14 +8,14 @@ import com.tibiabot.core.logic.eater.EaterEngine;
 import com.tibiabot.core.logic.eater.objects.EaterBehaviour;
 import com.tibiabot.core.logic.healer.objects.HealBehaviour;
 import com.tibiabot.core.logic.healer.workers.HealerEngine;
-import com.tibiabot.core.logic.paralize.UtilSpellEngine;
+import com.tibiabot.core.logic.paralize.ParalyzeEngine;
 
 public class Factory {
 
-    private static FactoryResources resources;
+    private static FactoryUtils factoryUtils;
 
     public Factory(){
-        resources = new FactoryResources();
+        factoryUtils = new FactoryUtils();
     }
 
     public static HealBehaviour createHpBehaviour(HealerEngine engine, int start, int end, int hotkey){
@@ -24,7 +24,7 @@ public class Factory {
 
         simple.setColor(BotConfig.hpBackground);
         simple.setHotkey(hotkey);
-        simple.setStartX(BotConfig.hpBarStartX + resources.manaHpPercentValue(start));
+        simple.setStartX(BotConfig.hpBarStartX + factoryUtils.manaHpPercentValue(start));
         simple.setStartY(BotConfig.hpBarY);
         if(end < 0){
 
@@ -33,7 +33,7 @@ public class Factory {
 
         }
         else {
-            simple.setEndX(BotConfig.hpBarStartX + resources.manaHpPercentValue(end));
+            simple.setEndX(BotConfig.hpBarStartX + factoryUtils.manaHpPercentValue(end));
             simple.setEndY(BotConfig.hpBarY);
         }
         engine.getList().add(simple);
@@ -47,7 +47,7 @@ public class Factory {
 
         simple.setColor(BotConfig.manaBackground);
         simple.setHotkey(hotkey);
-        simple.setStartX(BotConfig.manaBarStartX + resources.manaHpPercentValue(start));
+        simple.setStartX(BotConfig.manaBarStartX + factoryUtils.manaHpPercentValue(start));
         simple.setStartY(BotConfig.manaBarY);
         if(end < 0){
 
@@ -57,7 +57,7 @@ public class Factory {
         }
         else{
 
-            simple.setEndX(BotConfig.manaBarStartX + resources.manaHpPercentValue(end));
+            simple.setEndX(BotConfig.manaBarStartX + factoryUtils.manaHpPercentValue(end));
             simple.setEndY(BotConfig.manaBarY);
         }
 
@@ -94,7 +94,7 @@ public class Factory {
 
     }
 
-    public static SimpleBehaviour createParalizeBehaviour(UtilSpellEngine engine, int hotkey){
+    public static SimpleBehaviour createParalizeBehaviour(ParalyzeEngine engine, int hotkey){
 
         SimpleBehaviour utilSpellBehaviour = new SimpleBehaviour();
 

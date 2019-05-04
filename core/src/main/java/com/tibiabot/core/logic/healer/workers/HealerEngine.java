@@ -2,23 +2,24 @@ package com.tibiabot.core.logic.healer.workers;
 
 import com.tibiabot.core.logic.common.abstractions.Aworker;
 import com.tibiabot.core.logic.healer.objects.HealBehaviour;
-import com.tibiabot.core.logic.paralize.UtilSpellEngine;
+import com.tibiabot.core.logic.paralize.ParalyzeEngine;
+import org.springframework.beans.factory.annotation.Autowired;
 
 
 public class HealerEngine extends Aworker<HealBehaviour> {
 
+    @Autowired
     private HpMChecker checker;
-    private UtilSpellEngine utilEngine;
 
-    public HealerEngine(UtilSpellEngine utilEngine){
+    @Autowired
+    private ParalyzeEngine paralyzeEngine;
+
+    public HealerEngine(){
         super();
-        checker = new HpMChecker();
-        this.utilEngine = utilEngine;
     }
 
     public void work()  {
 
-            checker.setRobot(this.getRobot());
             for (HealBehaviour s : this.getList()) {
                 if (!checker.check(s)) {
                     synchronized (this.getTibiaInputer()) {
@@ -32,7 +33,8 @@ public class HealerEngine extends Aworker<HealBehaviour> {
                         return;
                 }
         }
-        utilEngine.work();
+        paralyzeEngine.work();
     }
+
 
 }
